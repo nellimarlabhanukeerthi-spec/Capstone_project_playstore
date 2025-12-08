@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>User Dashboard</title></head>
+<body>
+<nav>
+    <span id="welcome"></span>
+    <button id="logoutBtn">Logout</button>
+</nav>
+
+<h2>User Dashboard</h2>
+<div id="profile"></div>
+
+<script type="module">
+    import { isLoggedIn, getUsername, clearAuth, requireRole } from '../common/auth.js';
+    import { get } from '../common/api.js';
+
+    // Ensure role is USER
+    requireRole('USER');
+
+    document.getElementById('welcome').innerText = 'Hello, ' + (getUsername() || 'User');
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        clearAuth();
+        window.location.href = 'user-login.html';
+    });
+
+    // Example protected API call
+    (async () => {
+        const res = await fetch('http://localhost:8000/user-ms/api/profile', {
+            headers: { 'Authorization': 'Bearer ' + localStorage.getItem('playstore_token') }
+        });
+        if (res.ok) {
+            const profile = await res.json();
+            document.getElementById('profile').innerText = JSON.stringify(profile, null, 2);
+        } else {
+            // token invalid -> redirect to login
+            clearAuth();
+            window.location.href = 'user-login.html';
+        }
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<script>
+    localStorage.removeItem("token");
+    alert("You have been logged out!");
+    window.location.href = "user-login.html";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="../assets/style.css">
+
+    <style>
+        .dashboard-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 220px;
+            background: #6c63ff;
+            color: white;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            margin-bottom: 25px;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin: 12px 0;
+            font-size: 16px;
+        }
+
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 25px;
+            background: #f5f5f5;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            background: #ff4b4b;
+            padding: 10px 15px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logout-btn:hover {
+            background: #d93636;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <div class="sidebar">
+        <h2>Owner Panel</h2>
+        <a href="#">Dashboard</a>
+        <a href="#">Add App</a>
+        <a href="#">View Apps</a>
+        <a href="#">Profile</a>
+        <a href="owner-logout.html" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Welcome, Owner!</h1>
+
+        <div class="card">
+            <h3>Total Apps</h3>
+            <p>12</p>
+        </div>
+
+        <div class="card">
+            <h3>New Downloads</h3>
+            <p>56 today</p>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
